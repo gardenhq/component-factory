@@ -1,0 +1,9 @@
+*
+!conf/**
+!dispatcher/**
+!dom/**
+!mapper/**
+!renderer/**
+!util/**
+!ComponentFactory.js
+!DebugComponentFactory.js

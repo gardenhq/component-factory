@@ -1,16 +1,3 @@
-# component-factory
-
-Just incase, please don't use as yet unless part of o. This is so under-development it doesn't even have a name yet. It will be deprecated/unpublished as soon as we have a name and has better api/coverage and then republished.
-
-## Getting Started
-
-```
-javascript
-
-```
-
-## License
-
 ISC License
 
 Copyright (c) 2017-present, GardenHQ <gardener@gardenhq.io>
@@ -25,4 +12,4 @@ AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
 INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
 LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE
 OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
-PERFORMANCE OF THIS SOFTWARE.## License
+PERFORMANCE OF THIS SOFTWARE.
