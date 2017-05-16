@@ -1,7 +1,7 @@
 {
   "name": "@gardenhq/component-factory",
-  "version": "1.0.0",
-  "description": "",
+  "version": "1.1.0",
+  "description": "CF",
   "author": {
     "name": "GardenHQ",
     "email": "gardener@gardenhq.io",

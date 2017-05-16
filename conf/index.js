@@ -1,16 +1,14 @@
 module.exports = function()
 {
-    var temp = __dirname.split("/");
-    temp.pop();
-    var root = temp.join("/");
+    var root = __dirname + "/..";
     var canConnect = "customElements" in window;
     return {
         "imports": [
             {
-                resource: root + "/dom/conf/"
+                resource: root + "/dom/conf/index"
             },
             {
-                resource: root + "/conf/hyperhtml.js"
+                resource: root + "/conf/hyperhtml"
             }
         ],
         "component-factory": {
@@ -56,19 +54,21 @@ module.exports = function()
             "callable": "@hyperhtml:wire"
         },
         "component-factory.mapper": {
-            "callable": root + "/mapper/"
+            "callable": root + "/mapper/index"
         },
         "component-factory.dispatcher": {
-            "callable": root + "/dispatcher/"
-        },
-        "parse-template-literal": {
-            "object": "@gardenhq/parse-template-literal"
+            "callable": root + "/dispatcher/index"
         },
         "nanoraf": {
             "callable": root + "/util/nanoraf"
         },
+        "parse-template-literal": {
+            "object": "@gardenhq/parse-template-literal/index",
+            "version": "^1.1.0"
+        },
         "classtrophobic": {
-            "object": "classtrophobic-es5/classtrophobic-es5"
+            "object": "classtrophobic-es5/classtrophobic-es5",
+            "version": "^0.2.1"
         }
     };
 }

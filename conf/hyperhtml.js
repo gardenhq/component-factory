@@ -1,11 +1,8 @@
 module.exports = function()
 {
-    var temp = __dirname.split("/");
-    temp.pop();
-    var root = temp.join("/");
     return {
         "component-factory.renderer": {
-            "callable": root + "/renderer/hyperhtml",
+            "callable": __dirname + "/../renderer/hyperhtml",
             "arguments": [
                 "@hyperhtml",
                 "@component-factory.renderer.slot",
@@ -13,7 +10,8 @@ module.exports = function()
             ]
         },
         "hyperhtml": {
-            "object": "hyperhtml/hyperhtml"
+            "object": "hyperhtml/hyperhtml",
+            "version": "^0.9.0"
         }
     };
 }

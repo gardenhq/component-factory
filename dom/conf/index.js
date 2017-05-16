@@ -1,9 +1,6 @@
 module.exports = function(builder, win, doc)
 {
-    var temp = __dirname.split("/");
-    temp.pop();
-    temp.pop();
-    var root = temp.join("/");
+    var root = __dirname + "/../..";
     win = win || window;
     doc = doc || document;
     var hasCustomElements = "customElements" in win;
