@@ -1,4 +1,4 @@
-module.exports = function(mapper, dispatcher, renderer, onAnimationFrame, parse, Class, define, canConnect, prefix, shadow)
+module.exports = function(mapper, dispatcher, renderer, onAnimationFrame, TemplateLiteral, Class, define, canConnect, prefix, shadow)
 {
     shadow = false;
     define = define || (function(customElements){return customElements.bind(customElements)})(window.customElements);
@@ -65,7 +65,7 @@ module.exports = function(mapper, dispatcher, renderer, onAnimationFrame, parse,
                     document.querySelector("head").appendChild(style);
                 }
             }
-            definition.template = parse.compile(definition.template, ["props", "dispatch", "html"]);
+            definition.template = new TemplateLiteral(definition.template);
             defaultLifecycle.animationFrameCallback = function(props, dispatch, html)
             {
                 const vars = lifecycle.templateRequestedCallback.apply(
@@ -74,8 +74,7 @@ module.exports = function(mapper, dispatcher, renderer, onAnimationFrame, parse,
                         {props: props, dispatch: dispatch, html: html}
                     ]
                 );
-                // console.log(html.update);
-                return html.apply(null, definition.template.prepare.apply(null, [{props: props, dispatch: dispatch, html: html}]))
+                return definition.template.render({props: props, dispatch: dispatch, html: html}, html);
             }
         }   
 

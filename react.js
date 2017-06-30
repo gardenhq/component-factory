@@ -3,7 +3,8 @@ module.exports = function()
     var root = __dirname;
     return {
         "imports": [
-            root + "/dom/conf/index.js"
+            "@gardenhq/tick-control/container.js",
+            "@gardenhq/domino/container.js"
         ],
         "gardenhq.component-factory.render": {
             "callable": root + "/render/react.js",
@@ -28,7 +29,7 @@ module.exports = function()
             "callable": root + "/factory/react.js",
             "arguments": [
                 "@classtrophobic",
-                "@gardenhq.parse-template-literal",
+                "@gardenhq.tick-control",
                 "@react.core:Component",
                 "@react.core:createElement",
                 "@gardenhq.component-factory.react.dispatcher",
@@ -65,8 +66,6 @@ module.exports = function()
         },
 
 
-
-
         "react.core": {
             "object": "react/dist/react.min.js"
         },
@@ -79,10 +78,6 @@ module.exports = function()
         "hyperx": {
             "object": "hyperx/index",
             "version": "2.3.0"
-        },
-        "gardenhq.parse-template-literal": {
-            "object": "@gardenhq/parse-template-literal/index",
-            "version": "1.1.0"
         },
         "classtrophobic": {
             "object": "classtrophobic-es5/classtrophobic-es5",

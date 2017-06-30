@@ -1,6 +1,6 @@
 {
   "name": "@gardenhq/component-factory",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "CF",
   "author": {
     "name": "GardenHQ",
@@ -13,9 +13,10 @@
   },
   "devDependencies": {},
   "dependencies": {
-    "@gardenhq/parse-template-literal": "^1.1.0",
-    "hyperhtml": "^0.9.0",
-    "classtrophobic-es5": "^0.2.1"
+    "@gardenhq/domino": "^1.0.0",
+    "@gardenhq/tick-control": "^1.0.0",
+    "classtrophobic-es5": "^0.2.1",
+    "hyperhtml": "^0.9.0"
   },
   "publishConfig": {}
 }

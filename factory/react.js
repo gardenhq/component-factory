@@ -1,4 +1,4 @@
-module.exports = function(Class, Template, Super, createElement, dispatcher, renderer)
+module.exports = function(Class, TemplateLiteral, Super, createElement, dispatcher, renderer)
 {
     var mapper = {
         construct: function(component, attributes)
@@ -31,7 +31,19 @@ module.exports = function(Class, Template, Super, createElement, dispatcher, ren
     }
     return function(component, name)
     {
-        component.template = Template.compile(component.template, ['props', 'dispatch', 'html']);
+        var render;
+        if(typeof component.template !== "function") {
+            component.template = new TemplateLiteral(component.template);
+            render = function(props, dispatch, html)
+            {
+                return component.template.render({props: props, dispatch: dispatch, html: html}, html);
+            }
+        } else {
+            render = function(props, dispatch, html)
+            {
+                return component.template(props, dispatch, html);
+            }
+        }
         var Component = Class(
             {
                 extends: component.extends || Super,
@@ -59,16 +71,13 @@ module.exports = function(Class, Template, Super, createElement, dispatcher, ren
                         this,
                         mapper.get.bind(this)(/**/),
                         dispatcher.bind(this),
-                        function(props, dispatch, html)
-                        {
-                            return html.apply(null, component.template.prepare.apply(null, [{props: props, dispatch: dispatch, html: html}]))
-                        }
+                        render      
                     );
                     return el;
                 }
             }
         );
-        mapper.methods.apply(Component.prototype, [component.methods]);
+        mapper.methods.apply(Component.prototype, [component.methods || {}]);
         return Component;
     }
 }

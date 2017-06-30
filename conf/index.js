@@ -5,7 +5,10 @@ module.exports = function()
     return {
         "imports": [
             {
-                resource: root + "/dom/conf/index"
+                resource: "@gardenhq/domino/container.js"
+            },
+            {
+                resource: "@gardenhq/tick-control/container.js"
             },
             {
                 resource: root + "/conf/hyperhtml"
@@ -24,7 +27,7 @@ module.exports = function()
                 "@component-factory.dispatcher",
                 "@component-factory.renderer",
                 "@component-factory.onAnimationFrame",
-                "@parse-template-literal",
+                "@gardenhq.tick-control",
                 "@classtrophobic",
                 "@dom.customElements.define",
                 canConnect
@@ -61,10 +64,6 @@ module.exports = function()
         },
         "nanoraf": {
             "callable": root + "/util/nanoraf"
-        },
-        "parse-template-literal": {
-            "object": "@gardenhq/parse-template-literal/index",
-            "version": "^1.1.0"
         },
         "classtrophobic": {
             "object": "classtrophobic-es5/classtrophobic-es5",

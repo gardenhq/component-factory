@@ -10,13 +10,16 @@ module.exports = function($, domToString, prop)
             sel = sel || "html";
             el = $(el);
         }
-        var html = el[0];//.cloneNode(true);
+        var html = el[0].cloneNode(true);
+        html.removeAttribute("id");
         $("[" + prop + "]", html).forEach(
             function(item)
             {
                 var key = item.getAttribute(prop); 
                 if(item.nodeName == "INPUT") {
+                    // item.setAttribute(key, item.getAttribute("value"))
                     item.setAttribute("value", "${ props." + key + " }");
+
                     item.setAttribute("onInput", "${ dispatch('" + key + "') }");
                 } else {
                     item.textContent = "${ props." + key + " }";
@@ -24,7 +27,10 @@ module.exports = function($, domToString, prop)
                 item.removeAttribute(prop);
             }
         );
-        return domToString(html).replace(/(")(\$.+?(?="))(")/g, "$2").replace(/oninput/g, "onInput");
+        return domToString(html)
+            .replace(/(")(\$.+?(?="))(")/g, "$2")
+            .replace(/oninput/g, "onInput")
+            .replace(/onclick/g, "onClick");
     }
 
 }
