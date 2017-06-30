@@ -16,6 +16,12 @@ module.exports = function(builder, win, doc)
                 "dom.classes"
             ]
         },
+        "dom.selector": {
+            "callable": root + "/dom/selector.js"
+        },
+        "dom.innerdom":{
+            "object": root + "/dom/innerDOM.js"
+        },
         "dom.class.svg": {
             "callable": root + "/dom/class/svg",
             "tags": [

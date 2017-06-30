@@ -2,8 +2,11 @@
 !conf/**
 !dispatcher/**
 !dom/**
+!factory/**
 !mapper/**
 !renderer/**
+!render/**
+!template/**
 !util/**
 !ComponentFactory.js
 !DebugComponentFactory.js
