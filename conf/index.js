@@ -5,10 +5,12 @@ module.exports = function()
     return {
         "imports": [
             {
-                resource: "@gardenhq/domino/container.js"
+                "resource": "@gardenhq/domino/container.js",
+                "version": "1.0.0"
             },
             {
-                resource: "@gardenhq/tick-control/container.js"
+                "resource": "@gardenhq/tick-control/container.js",
+                "version": "2.0.0"
             },
             {
                 resource: root + "/conf/hyperhtml"
@@ -67,7 +69,7 @@ module.exports = function()
         },
         "classtrophobic": {
             "object": "classtrophobic-es5/classtrophobic-es5",
-            "version": "^0.2.1"
+            "version": "0.2.1"
         }
     };
 }

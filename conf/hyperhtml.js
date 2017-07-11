@@ -11,7 +11,7 @@ module.exports = function()
         },
         "hyperhtml": {
             "object": "hyperhtml/hyperhtml",
-            "version": "^0.9.0"
+            "version": "0.15.5"
         }
     };
 }

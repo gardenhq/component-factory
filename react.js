@@ -3,8 +3,14 @@ module.exports = function()
     var root = __dirname;
     return {
         "imports": [
-            "@gardenhq/tick-control/container.js",
-            "@gardenhq/domino/container.js"
+            {
+                "resource": "@gardenhq/tick-control/container.js",
+                "version": "2.0.0"
+            },
+            {
+                "resource": "@gardenhq/domino/container.js",
+                "version": "1.0.0"
+            }
         ],
         "gardenhq.component-factory.render": {
             "callable": root + "/render/react.js",
